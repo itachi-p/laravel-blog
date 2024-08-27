@@ -3,7 +3,7 @@
 @section('title', 'Create Post')
 
 @section('content')
-    <form action="#" method="post" enctype="multipart/form-data">
+    <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
 
         @csrf
 

@@ -22,5 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     // POST - This Route Group will organize or group all routes related to POST
     Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
         Route::get('/create', [PostController::class, 'create'])->name('create'); // post.create
+        Route::post('/store', [PostController::class, 'store'])->name('store'); // post.store
+        Route::get('/{id}/show', [PostController::class, 'show'])->name('show'); // post.show
     });
 });

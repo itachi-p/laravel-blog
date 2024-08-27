@@ -19,7 +19,10 @@ class PostController extends Controller
     #
     public function index()
     {
-        return view('posts.index');
+        $all_posts = $this->post->latest()->get();
+
+        return view('posts.index')
+            ->with('all_posts', $all_posts);
     }
 
 
@@ -50,5 +53,14 @@ class PostController extends Controller
 
         # 3. Back to Homepage
         return redirect()->route('index');
+    }
+
+    # show() view the Show Post Page
+    public function show($id)
+    {
+        $post = $this->post->findOrFail($id);
+
+        return view('posts.show')
+            ->with('post', $post);
     }
 }
