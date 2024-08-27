@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title', 50);
             $table->text('body');
-            $table->string('image', 50);
+            $table->longText('image');
             $table->timestamps();
 
             // Setting foreign key to users table

@@ -49,6 +49,11 @@
                                 </li>
                             @endif
                         @else
+                            {{-- link to create another post inside navbar --}}
+                            <li class="nav-item">
+                                <a href="{{ route('post.create') }}" class="nav-link">Create Post</a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
