@@ -63,4 +63,52 @@ class PostController extends Controller
         return view('posts.show')
             ->with('post', $post);
     }
+
+
+    # edit() view the Edit Post Page
+    public function edit($id)
+    {
+        $post = $this->post->findOrFail($id);
+
+        if ($post->user_id != Auth::user()->id) { // $post->user->id is also Ok.
+            return redirect()->route('index');
+        }
+
+        return view('posts.edit')
+            ->with('post', $post);
+    }
+
+
+    # update() save changes of the post
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|min:1|max:50',
+            'body' => 'required|min:1|max:1000',
+            'image' => 'mimes:jpg,jpeg,png,gig|max:1048',
+        ]);
+        // mime = multipurpose internet mail extensions
+
+        $post = $this->post->findOrFail($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+
+        # if there's a new image ...
+        if ($request->image) {
+            $post->image = 'data:image/' . $request->image->extension() . ';base64,' . base64_encode(file_get_contents($request->image));
+        }
+
+        $post->save();
+
+        return redirect()->route('post.show', $id);
+    }
+
+
+    # destroy() - Delete the record of the post
+    public function destroy($id)
+    {
+        $this->post->destroy($id);
+
+        return redirect()->back();
+    }
 }

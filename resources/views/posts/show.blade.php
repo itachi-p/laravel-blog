@@ -17,4 +17,17 @@
         {{-- image --}}
         <img src="{{ $post->image }}" alt="{{ $post->title}}" class="w-100 shadow rounded">
     </div>
+
+    {{-- comment form --}}
+    <form action="#" method="post">
+        @csrf
+        <div class="input-group mt-5">
+            <input type="text" name="comment" id="comment" placeholder="Add a comment..." value="{{ old('comment') }}" class="form-control">
+            <button type="submit" class="btn btn-outline-secondary btn-sm">Post</button>
+        </div>
+        {{-- error --}}
+        @error('comment')
+            <p class="text-danger small">{{ $message }}</p>
+        @enderror
+    </form>
 @endsection

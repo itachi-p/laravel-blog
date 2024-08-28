@@ -24,5 +24,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/create', [PostController::class, 'create'])->name('create'); // post.create
         Route::post('/store', [PostController::class, 'store'])->name('store'); // post.store
         Route::get('/{id}/show', [PostController::class, 'show'])->name('show'); // post.show
+        Route::get('/{id}/edit', [PostController::class, 'edit'])->name('edit'); // post.edit
+        Route::patch('/{id}/update', [PostController::class, 'update'])->name('update'); // post.update
+        Route::delete('/{id}/destroy', [PostController::class, 'destroy'])->name('destroy'); // post.destroy
     });
 });

@@ -15,12 +15,12 @@
             @if ( Auth::user()->id === $post->user->id) {{-- $post->user_id is also Ok.--}}
                 <div class="mt-2 text-end">
                     {{-- edit --}}
-                    <a href="#" class="btn btn-primary btn-sm">
+                    <a href="{{ route('post.edit', $post->id) }}" class="btn btn-primary btn-sm">
                         <i class="fa-solid fa-pen"></i> Edit
                     </a>
 
                     {{-- delete --}}
-                    <form action="#" method="post" class="d-inline">
+                    <form action="{{ route('post.destroy', $post->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('DELETE')
 
