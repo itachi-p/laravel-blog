@@ -25,7 +25,7 @@ class CommentController extends Controller
 
         $this->comment->user_id = Auth::user()->id; // Who created the comment and it is actually always the auth user
         $this->comment->post_id = $post_id; // What post was commented
-        $this->comment->ost_id = $request->comment; // What is the comment
+        $this->comment->body = $request->comment; // What is the comment
         $this->comment->save();
 
         return redirect()->back();
