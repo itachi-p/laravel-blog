@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('email')->unique();
-            $table->string('avatar', 50)->nullable();
+            $table->longText('avatar')->nullable();
             $table->string('password');
             $table->timestamps();
         });

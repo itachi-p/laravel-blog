@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -34,5 +35,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'comment', 'as' => 'comment.'], function () {
         Route::post('/{post_id}/store', [CommentController::class, 'store'])->name('store'); // comment.store
         Route::delete('/{comment_id}/destroy', [CommentController::class, 'destroy'])->name('destroy'); // comment.destroy
+    });
+
+    // USER
+    Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
+        Route::get('/{id}/show', [UserController::class, 'show'])->name('show'); // profile.show
+        Route::get('/{id}/edit', [UserController::class, 'edit'])->name('edit'); // profile.edit
+        Route::patch('/{id}/update', [UserController::class, 'update'])->name('update'); // profile.update
     });
 });

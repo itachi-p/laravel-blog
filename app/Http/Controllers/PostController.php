@@ -85,7 +85,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:1|max:50',
             'body' => 'required|min:1|max:1000',
-            'image' => 'mimes:jpg,jpeg,png,gig|max:1048',
+            'image' => 'mimes:jpg,jpeg,png,gif|max:1048',
         ]);
         // mime = multipurpose internet mail extensions
 
