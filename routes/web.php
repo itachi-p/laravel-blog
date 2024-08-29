@@ -33,5 +33,6 @@ Route::group(['middleware' => 'auth'], function () {
     // COMMENT
     Route::group(['prefix' => 'comment', 'as' => 'comment.'], function () {
         Route::post('/{post_id}/store', [CommentController::class, 'store'])->name('store'); // comment.store
+        Route::delete('/{comment_id}/destroy', [CommentController::class, 'destroy'])->name('destroy'); // comment.destroy
     });
 });

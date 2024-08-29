@@ -105,9 +105,9 @@ class PostController extends Controller
 
 
     # destroy() - Delete the record of the post
-    public function destroy($id)
+    public function destroy($post_id)
     {
-        $this->post->destroy($id);
+        $this->post->destroy($post_id);
 
         return redirect()->back();
     }

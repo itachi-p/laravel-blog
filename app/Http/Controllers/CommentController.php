@@ -30,4 +30,13 @@ class CommentController extends Controller
 
         return redirect()->back();
     }
+
+
+    # destroy() - delete a comment that owner can own comment
+    public function destroy($comm_id)
+    {
+        $this->comment->destroy($comm_id);
+
+        return redirect()->back();
+    }
 }

@@ -44,7 +44,7 @@
                     <div class="col-2 text-end">
                         {{-- Show delete button if Auth user is the owner of the comment --}}
                         @if ($comment->user_id === Auth::user()->id) {{-- or comment->user->id is also OK --}}
-                            <form action="#" method="post">
+                            <form action="{{ route('comment.destroy', $comment->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
 
