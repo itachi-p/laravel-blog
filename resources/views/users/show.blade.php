@@ -15,9 +15,7 @@
         <div class="col-8">
             <h2 class="display-6">{{ $user->name }}</h2>
 
-            {{--TODO: I want to specify a user_id that clearly identifies the poster of the post, not by the "$user->posts()->first()->user_id". --}}
-            {{-- {{ print_r($user->posts()->first()->user_id . "*") }} --}}
-            @if ($user->posts()->first()->user_id === Auth::user()->id)
+            @if ($user->id === Auth::user()->id)
                 <a href="{{ route('profile.edit', Auth::user()->id) }}" class="text-decoration-none">Edit Profile</a>
             @endif
         </div>

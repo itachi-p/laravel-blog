@@ -33,15 +33,23 @@
                     </a>
 
                     {{-- delete --}}
-                    <form action="{{ route('post.destroy', $post->id) }}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-post-{{ $post->id }}">
+                            <i class="fa-solid fa-trash-can"></i> Delete
+                        </button>
+
+                    {{-- <form action="{{ route('post.destroy', $post->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger btn-sm">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="setDeletePostId({{ $post->id }})">
                             <i class="fa-solid fa-trash-can"></i> Delete
                         </button>
-                    </form>
+                    </form> --}}
             </div>
+
+            {{-- include modal here --}}
+            @include('posts.modal.action')
+
             @endif
         </div>
     </div>
