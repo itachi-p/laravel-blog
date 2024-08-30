@@ -3,7 +3,7 @@
 @section('title', 'Edit Profile')
 
 @section('content')
-    <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('profile.update', Auth::user()->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
