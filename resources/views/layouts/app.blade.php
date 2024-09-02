@@ -19,7 +19,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- asset connected '/public/'' automatically -->
+    <!-- この方法もコメントとして残すが、今回はシンプルにviews/modal/action.blade.phpのimgタグでclass="w-100"と指定する方法で画像サイズ調整 -->
+    {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- asset connected '/public/'' automatically --> --}}
 </head>
 <body>
     <div id="app">

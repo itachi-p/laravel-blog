@@ -19,24 +19,23 @@
             <p class="fw-light mb-0">{{ $post->body }}</p>
         </div>
         <div class="col-4  mt-2 border border-2 rounded">
-        {{-- image --}}
+        {{-- image (additional task) --}}
         <img src="{{ $post->image }}" alt="{{ $post->title}}" class="w-100 shadow rounded">
 
         </div>
             {{-- Action Buttons --}}
             <div class="col-4">
             @if ( Auth::user()->id === $post->user->id) {{-- $post->user_id is also Ok.--}}
-                <div class="">
+                <div class="mt-2 text-end">
                     {{-- edit --}}
                     <a href="{{ route('post.edit', $post->id) }}" class="btn btn-primary btn-sm">
                         <i class="fa-solid fa-pen"></i> Edit
                     </a>
 
                     {{-- delete --}}
-                        <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-post-{{ $post->id }}">
-                            <i class="fa-solid fa-trash-can"></i> Delete
-                        </button>
 
+                    <!-- (追加課題) 削除確認モーダルを挟むため、この削除ボタンはform送信をやめてモーダルのトリガーに留める -->
+                    {{-- (additional task) Additional change to interleave deletion confirmation modal --}}
                     {{-- <form action="{{ route('post.destroy', $post->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('DELETE')
@@ -45,10 +44,16 @@
                             <i class="fa-solid fa-trash-can"></i> Delete
                         </button>
                     </form> --}}
-            </div>
 
-            {{-- include modal here --}}
-            @include('posts.modal.action')
+                    <!-- 上記に替えて、モーダルを呼び出すだけの削除ボタン -->
+                    <!-- type="submit"属性を外し、代わりにモーダル画面のidを指定するdata-bs-属性を持たせる -->
+                    <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-post-{{ $post->id }}">
+                        <i class="fa-solid fa-trash-can"></i> Delete
+                    </button>
+                </div>
+
+                <!-- include modal here -->
+                @include('posts.modal.action')
 
             @endif
         </div>

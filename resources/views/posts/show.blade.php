@@ -2,7 +2,6 @@
 
 @section('title', 'Show Post')
 
-
 @section('content')
     <div class="mt-2 border border-2 rounded p-4 shadow-sm">
         {{-- title --}}
@@ -27,6 +26,7 @@
         @csrf
         <div class="input-group mt-5">
             <input type="text" name="comment" id="comment" placeholder="Add a comment..." value="{{ old('comment') }}" class="form-control">
+            {{-- <textarea name="comment" id="commnent" rows="2" placeholder="Please let us know your comments" class="form-control">{{ old('comment') }}</textarea> --}}
             <button type="submit" class="btn btn-outline-secondary btn-sm">Post</button>
         </div>
         {{-- error --}}
@@ -67,19 +67,3 @@
         </div>
     @endif
 @endsection
-
-{{-- @section('script')
-    <script>
-        $(function () {
-            $(".btn-dell").click(function(){
-                if(confirm("Are you sure you want to delete it?")){
-                // delete
-                    @method('DELETE')
-                } else {
-                    // cancel
-                    return false;
-                }
-            });
-        });
-    </script>
-@endsection --}}

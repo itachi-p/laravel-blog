@@ -40,7 +40,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:50',
             'body' => 'required|max:1000',
-            'image' => 'required|mimes:jpeg,jpg,png,gif|max:1048',
+            'image' => 'required|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
         // mime = multipurpose internet mail extensions
 
@@ -85,7 +85,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:1|max:50',
             'body' => 'required|min:1|max:1000',
-            'image' => 'mimes:jpg,jpeg,png,gif|max:1048',
+            'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
         ]);
         // mime = multipurpose internet mail extensions
 
