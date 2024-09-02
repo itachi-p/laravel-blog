@@ -19,7 +19,7 @@
                 <input type="file" name="avatar" class="form-control mt-1">
                 <div class="form-text">
                     Acceptable formats: jpeg, jpg, png, gif only<br>
-                    Maximum file size: 1048kb
+                    Maximum file size: 1024kb
                 </div>
                 {{-- Error --}}
                 @error('avatar')

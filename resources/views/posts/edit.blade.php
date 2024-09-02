@@ -38,7 +38,7 @@
                 <input type="file" name="image" id="image" class="form-control mt-1">
                 <div class="form-text">
                     Acceptable formats are: jpeg, jpg, png, gif only<br>
-                    Maximum file size is 1048kb.
+                    Maximum file size is 2048kb.
                 </div>
                 {{-- error --}}
                 @error('image')
