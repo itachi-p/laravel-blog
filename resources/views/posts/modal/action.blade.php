@@ -15,9 +15,9 @@
             <div class="modal-body">
                 <p class="lead text-warning">Are you sure you want to delete this post?</p>
                 <div class="mt-3">
-                    <!-- ここの画像のサイズ調整はBootstrapでなく、カスタムCSSによって行うこともできる -->
-                    <!-- カスタムCSSファイルを別途用意するより、class="w-100" と指定した方が手間が少ない気はする -->
-                    <img src="{{ $post->image }}" alt="post id {{ $post->id }}" class="image-sm w-100">
+                    <!-- ここの画像のサイズ調整はBootstrapでなく、別途用意したカスタムCSSによって行うこともできる -->
+                    <!-- しかしカスタムCSSファイルを用意するより、class="w-100" と指定した方が手間が少ない気はする -->
+                    <img src="{{ $post->image }}" alt="post id {{ $post->id }}" class="image-sm">
                     <p class="mt-1 text-muted">{{ $post->description }}</p>
                 </div>
             </div>

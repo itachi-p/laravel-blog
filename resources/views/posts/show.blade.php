@@ -9,7 +9,11 @@
         <h2 class="h4">{{ $post->title }}</h2>
 
         {{-- owner --}}
-        <h3 class="h6 text-muted">{{ $post->user->name }}</h3>
+        <h3 class="h6 text-muted">
+            <a href="{{ route('profile.show', $post->user->id) }}" class="text-decoration-none">
+                {{ $post->user->name }}
+            </a>
+        </h3>
 
         {{-- body --}}
         <p>{{ $post->body }}</p>
@@ -37,7 +41,11 @@
             @foreach ($post->comments as $comment)
                 <div class="row p-2">
                     <div class="col-10">
-                        <span class="fw-bold">{{ $comment->user->name }}</span>&nbsp;
+                        <span class="fw-bold">
+                            <a href="{{ route('profile.show', $post->user_id) }}" class="text-decoration-none">
+                                {{ $comment->user->name }}
+                            </a>
+                        </span>&nbsp;
                         <span class="small text-muted">{{ date('M d, Y', strtotime($comment->created_at)) }}</span>
                         <p class="mb-0">{{ $comment->body }}</p>
                     </div>
@@ -59,3 +67,19 @@
         </div>
     @endif
 @endsection
+
+{{-- @section('script')
+    <script>
+        $(function () {
+            $(".btn-dell").click(function(){
+                if(confirm("Are you sure you want to delete it?")){
+                // delete
+                    @method('DELETE')
+                } else {
+                    // cancel
+                    return false;
+                }
+            });
+        });
+    </script>
+@endsection --}}

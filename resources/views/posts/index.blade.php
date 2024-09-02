@@ -33,13 +33,14 @@
                     </a>
 
                     {{-- delete --}}
+
                     <!-- (追加課題) 削除確認モーダルを挟むため、この削除ボタンはform送信をやめてモーダルのトリガーに留める -->
                     {{-- (additional task) Additional change to interleave deletion confirmation modal --}}
                     {{-- <form action="{{ route('post.destroy', $post->id) }}" method="post" class="d-inline">
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger btn-sm">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="setDeletePostId({{ $post->id }})">
                             <i class="fa-solid fa-trash-can"></i> Delete
                         </button>
                     </form> --}}
